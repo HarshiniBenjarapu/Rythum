@@ -1,0 +1,120 @@
+html, body {
+    height: 100%;             /* Make sure the body takes full height */
+    margin: 0;                /* Remove default margins */
+    padding: 0;               /* Remove default padding */
+}
+/*make page take full height*/
+body{
+    margin:0;
+    padding:0;
+    min-height:100vh;
+    background:whitesmoke;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+}
+/*Logo ("Rythum")*/
+header{
+    
+    position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background: black;
+  border-bottom: 2px solid rgba(255, 0, 150, 0.4); /* glowing line */
+  display: flex;
+  align-items: center;
+  padding-left: 40px;
+  z-index: 10;
+}
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: darkmagenta;
+}
+/*man layout - split left text and right image*/
+main{
+    display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 70px 80px 0 80px; /* top padding to account for fixed header; remove fixed height */
+  background-image: url('2341b77a30cbc52b884116618956cc73.jpg');
+    background-size: cover;   /* Make the image cover the whole area */
+    background-position: center; /* Center the image */
+ }
+.left-content,.right-content{
+    flex:1;
+}
+/*left text section*/
+.left-content .title{
+    font-size: 4rem;
+    margin-left: 40px;
+    background: linear-gradient(45deg, #ff00cc, #3333ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+/* right image section */
+.right-content img{
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.45), inset 0 2px 6px rgba(255,255,255,0.03);
+  object-fit: cover;
+  display: block;
+}
+
+/* overlay play button (visual only) centered on the image */
+.right-content::before{
+  content: '▶';
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  transform: translate(-50%, -50%);
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg,#1db954,#1ed760);
+  color: #fff;
+  font-size: 26px;
+  line-height: 64px;
+  text-align: center;
+  box-shadow: 0 12px 30px rgba(29,185,84,0.25), 0 3px 8px rgba(0,0,0,0.6);
+  z-index: 6;
+}
+
+/* Decorative, non-functional Spotify-like player card inside the phone */
+.right-content::after {
+  content: "Wanna Be Your's\A⏮  ⏯  ⏭";
+  white-space: pre;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 12px; /* sits inside the phone bottom padding */
+  width: calc(100% - 28px); /* fit nicely within the phone's inner width */
+  max-width: 320px;
+  height: 68px;
+  background: linear-gradient(180deg,#0f1113,#0b0d0f);
+  color: #e6eee8;
+  padding: 10px 14px 10px 74px; /* space for faux album thumbnail */
+  font-weight: 600;
+  font-size: 13px;
+  border-radius: 10px;
+  box-shadow: 0 14px 36px rgba(2,6,23,0.6), inset 0 2px 6px rgba(255,255,255,0.02);
+  z-index: 5;
+  text-align: left;
+}
+
+/* progress stripe shown as a thin bar at the very bottom of the card */
+.right-content::after{
+  background-image: linear-gradient(90deg,#1db954 var(--p,40%), rgba(255,255,255,0.08) var(--p,40%)), linear-gradient(180deg,#0f1113,#0b0d0f);
+  background-repeat: no-repeat;
+  background-size: 100% 6px, 100% 100%;
+  background-position: left bottom, center;
+}
+.scroll-section{
+    background: url('2341b77a30cbc52b884116618956cc73.jpg');
+    background-size: cover;
+    background-position: center;
+    gap: calc();
+}
