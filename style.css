@@ -5,8 +5,6 @@ html, body {
 }
 /*make page take full height*/
 body{
-    margin:0;
-    padding:0;
     min-height:100vh;
     background:whitesmoke;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -32,29 +30,46 @@ header{
   font-weight: 700;
   color: darkmagenta;
 }
+/*applying backround troughout page*/
+.container{
+  background-image: url('2341b77a30cbc52b884116618956cc73.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 200vh; /* or large enough to include both sections */
+
+}
 /*man layout - split left text and right image*/
-main{
-    display: flex;
+main {
+  display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 70px 80px 0 80px; /* top padding to account for fixed header; remove fixed height */
-  background-image: url('2341b77a30cbc52b884116618956cc73.jpg');
-    background-size: cover;   /* Make the image cover the whole area */
-    background-position: center; /* Center the image */
- }
+  min-height: calc(100vh - 70px);
+  padding: 0 80px;
+  margin-top: 70px; /* ensures content starts below fixed header */
+  margin-bottom: 0; /* ensure no gap at bottom */
+}
 .left-content,.right-content{
     flex:1;
 }
 /*left text section*/
 .left-content .title{
-    font-size: 4rem;
-    margin-left: 40px;
-    background: linear-gradient(45deg, #ff00cc, #3333ff);
+  font-size: 4rem;
+  margin-left: 40px;
+  background: linear-gradient(45deg,#ff00cc,#3333ff);/*gradient color as right to left*/
+  background-size: 300%;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  animation: gradientmove 5s ease infinite;/*animation for gradiant text*/
 }
-/* right image section */
+/*Animation Keyframes*/
+@keyframes gradientmove{
+  0%{background-posyion:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position: 0% 50%;}
+}
+/* right image section*/ 
 .right-content img{
   width: 100%;
   height: auto;
@@ -63,8 +78,7 @@ main{
   object-fit: cover;
   display: block;
 }
-
-/* overlay play button (visual only) centered on the image */
+/* overlay play button (visual only) centered on the image*/ 
 .right-content::before{
   content: '▶';
   position: absolute;
@@ -112,9 +126,21 @@ main{
   background-size: 100% 6px, 100% 100%;
   background-position: left bottom, center;
 }
+/*positioning scroll section*/
 .scroll-section{
-    background: url('2341b77a30cbc52b884116618956cc73.jpg');
-    background-size: cover;
-    background-position: center;
-    gap: calc();
+  text-align: center;
+  position: relative;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
 }
+/*setting sroll-text style*/
+.scroll-section .scroll-text{
+  font-size: 2rem;
+  font-weight: 700;
+  color: darkmagenta;
+  transition: text-shadow 0.3s ease; /* smooth effect */
+  }
+ .scroll-section .scroll-text:hover{
+ text-shadow: 2px 2px 2px magenta;
+  }
