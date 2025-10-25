@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Italianno&family=Roboto+Slab:wght@100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto Slab';
+}
+header{
+  background: black; 
+  border-bottom: 2px solid rgba(255, 0, 150, 0.4); /* glowing line */
+  width: 100%;
+  height: 70px;
+  align-items: center; 
+  padding-left: 40px; 
+  z-index: 10;
+  position: fixed;
+  top: 0; 
+  left:0;
+}
+.logo { 
+  font-size: 1.8rem; 
+  font-weight: 700; 
+  color: darkmagenta; 
+  text-shadow: 0 2px 8px rgba(168, 88, 135, 0.7); 
+}
+/*menubar icon styling*/
+.menubar{
+    border-color: aliceblue;
+  font-size: 2rem;
+  color:white;
+  cursor:pointer;
+  transition: transform 0.3s ease,color 0.3s ease;
+}
