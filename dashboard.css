@@ -6,6 +6,16 @@
     box-sizing: border-box;
     font-family: 'Roboto Slab';
 }
+body {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #280225, #be68b7);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  padding-top: 70px; /* for header space */
+  color: white;
+}
+
 header{
   background: black; 
   border-bottom: 2px solid rgba(255, 0, 150, 0.4); /* glowing line */
@@ -17,18 +27,136 @@ header{
   position: fixed;
   top: 0; 
   left:0;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
 }
 .logo { 
   font-size: 1.8rem; 
   font-weight: 700; 
   color: darkmagenta; 
-  text-shadow: 0 2px 8px rgba(168, 88, 135, 0.7); 
+  text-shadow: 0 2px 8px rgba(168, 88, 135, 0.7);
 }
-/*menubar icon styling*/
-.menubar{
-    border-color: aliceblue;
-  font-size: 2rem;
-  color:white;
-  cursor:pointer;
-  transition: transform 0.3s ease,color 0.3s ease;
+.logo:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+/*navbar*/
+.navbar{
+    font-size: 1rem;
+    color: white;
+    padding: 15px;
+    margin-right: 40px;
+}
+ul{
+    display:flex;
+    justify-content: space-between;
+    gap: 40px;
+    list-style-type: none;
+}
+.navbar li{
+    cursor: pointer;
+    transition: 0.3s;
+}
+.home:hover{
+    border-bottom: 2px solid magenta;
+    cursor: pointer;
+}
+.fav:hover{
+    border-bottom: 2px solid magenta;
+    cursor: pointer;
+}
+.rp:hover{
+    border-bottom: 2px solid magenta;
+    cursor: pointer;
+}
+section{
+    margin-top: 70px; 
+}
+/*playlist section*/
+.Playlist-section{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 100px;
+    gap:20px;
+    position: relative;
+}
+.scroll-left, .scroll-right{
+    margin-top: 100px;
+    background-color: rgb(113, 97, 106);
+    opacity: 0.7;
+    padding: 10px;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 6px;
+    outline: none;
+}
+.scroll-left:hover, .scroll-right:hover{
+    transform: scale(1.2);
+    color: magenta;
+}
+/*container for cards*/
+.playlist-container{
+    display: flex;
+    gap:70px;
+    margin-top:-20px;
+    justify-content: center;
+    position: relative;
+    align-items: flex-start;
+
+}
+/*card (base design)*/
+.card{
+    width: 220px;
+    height:395px;
+    margin: 18px;
+    border-radius: 20px;
+    background: linear-gradient(145deg, #1e1e1e, #2c2c2c);
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; 
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+}
+.card-1 {
+    transform: translateY(-50px); /* move up */
+    z-index: 1;
+}
+.card-2 {
+    transform: translateY(0); /* center */
+    z-index: 2; /* middle card on top */
+}
+.card-3 {
+    transform: translateY(50px); /* move down */
+    z-index: 1;
+}
+.card-4 {
+    transform: translateY(-50px); /* move up */
+    z-index: 1;
+}
+.card-5 {
+    transform: translateY(0); /* center */
+    z-index: 2; /* middle card on top */
+}
+.card-6 {
+    transform: translateY(50px); /* move down */
+    z-index: 1;
+}
+.card:hover{
+    transform: scale(1.05);
+    box-shadow: 0 0 20px magenta, 0 0 30px magenta;
+}
+.card-4, .card-5, .card-6{
+    display: none;
+}
+.card :focus{
+    width: 300px;
+    height: 480px;
+    transform: translateY(0);
+    z-index: 3;
 }

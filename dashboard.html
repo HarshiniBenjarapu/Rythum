@@ -9,30 +9,26 @@
 <body>
     <header>
         <h1 class="logo">Rythum</h1>
-        <div class="meanubar">≡</div>
+        <!--side menu-->
+        <nav class="navbar">
+            <ul>
+                <li class="home">Home</li>
+                <li class="fav">Favorties ❤</li>
+                <li class="rp">Recently Played</li>
+            </ul>
+        </nav>
     </header>
-    <!--side menu-->
-    <nav class="side-menu">
-        <ul>
-            <li>Home</li>
-            <li>Favorties ❤</li>
-            <li>Recently Played</li>
-        </ul>
-    </nav>
     <!--Playlist carousel-->
     <section class="Playlist-section">
         <button class="scroll-left" id="scroll-left">⬅</button>
-        <div class="paylist-container">
-            <!--3 visible ata a time-->
-            <div class="card card-1">
-
-            </div>
-            <div class="card card-2">
-
-            </div>
-            <div class="card card-3">
-
-            </div>
+        <div class="playlist-container" id="playlist-container">
+                        <!-- First 3 visible cards -->
+            <div class="card card-1" data-index="0">Song 1</div>
+            <div class="card card-2" data-index="1">Song 2</div>
+            <div class="card card-3" data-index="2">Song 3</div>
+            <div class="card card-4 " data-index="3">Song 4</div>
+            <div class="card card-5 " data-index="4">Song 5</div>
+            <div class="card card-6 " data-index="5">Song 6</div>
         </div>
         <button class="scroll-right" id="scroll-right">➡</button>
     </section>
