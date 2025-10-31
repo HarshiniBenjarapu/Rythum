@@ -1,27 +1,33 @@
-document.addEventListener('DOMContentLoaded', function(){
-    const container = document.getElementById('playlist-container');
-    const scrollLeft = document.getElementById('scroll-right');
-    const scrollRight = document.getElementById('scroll-left');
-    const cards = document.querySelectorAll('.crad');
+const first = document.getElementById("firstset");
+const sec = document.getElementById("secondset");
+const pre = document.getElementById("scroll-left");
+const next = document.getElementById("scroll-right");
 
-    scrollLeft.addEventListener('click', ()=>{
-        container.scrollBy({
-            left: -300,
-        behavior: 'smooth'
-    });
+const cards = [first, sec];
+let currentcard = 0;
+
+// Initially show only the first set
+showSlide(cards[currentcard]);
+
+next.addEventListener("click", () => {
+  if (currentcard < cards.length - 1) {
+    currentcard += 1;
+  } else {
+    currentcard = 0;
+  }
+  showSlide(cards[currentcard]);
 });
-    scrollRight.addEventListener('click',()=>{
-        container.scrollBy({
-            left: 300,
-            behaviour: 'smooth'
-        });
-        
-    });
-    cards.forEach((card)=>{
-        card.addEventListener('click',()=>{
-            cards.forEach((c)=> 
-            c.classList.remove('focus'));
-        })
-    
+
+pre.addEventListener("click", () => {
+  if (currentcard > 0) {
+    currentcard -= 1;
+  } else {
+    currentcard = cards.length - 1;
+  }
+  showSlide(cards[currentcard]);
 });
-});
+
+function showSlide(cardToShow) {
+  cards.forEach((card) => (card.style.display = "none")); // hide all
+  cardToShow.style.display = "flex"; // show selected one
+}

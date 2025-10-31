@@ -7,7 +7,6 @@
     font-family: 'Roboto Slab';
 }
 body {
-  min-height: 100vh;
   background: linear-gradient(to bottom, #280225, #be68b7);
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -48,7 +47,7 @@ header{
     padding: 15px;
     margin-right: 40px;
 }
-ul{
+.navlist{
     display:flex;
     justify-content: space-between;
     gap: 40px;
@@ -70,20 +69,23 @@ ul{
     border-bottom: 2px solid magenta;
     cursor: pointer;
 }
-section{
-    margin-top: 70px; 
-}
 /*playlist section*/
 .Playlist-section{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 100px;
+    margin-top: 20px;
     gap:20px;
     position: relative;
+    
+}
+.Playlist-section a{
+    position: absolute;
+    z-index: 3;
 }
 .scroll-left, .scroll-right{
-    margin-top: 100px;
+    text-decoration: none;
+    justify-content: space-between;
     background-color: rgb(113, 97, 106);
     opacity: 0.7;
     padding: 10px;
@@ -96,67 +98,71 @@ section{
     border-radius: 6px;
     outline: none;
 }
+.scroll-right{
+    right: 0;
+}
 .scroll-left:hover, .scroll-right:hover{
     transform: scale(1.2);
     color: magenta;
 }
-/*container for cards*/
+/*playlist container*/
 .playlist-container{
-    display: flex;
-    gap:70px;
-    margin-top:-20px;
-    justify-content: center;
-    position: relative;
-    align-items: flex-start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 480px;
 
 }
+.firstset, .secondset{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+#firstset, #secondset {
+  display: none;
+}
+
 /*card (base design)*/
 .card{
-    width: 220px;
-    height:395px;
-    margin: 18px;
-    border-radius: 20px;
-    background: linear-gradient(145deg, #1e1e1e, #2c2c2c);
-    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; 
-    transition: all 0.3s ease;
-    cursor: pointer;
-    position: relative;
-    display: flex;
+  flex-shrink: 0;
+  width: 240px;
+  height: 380px;
+  border-radius: 20px;
+  background: linear-gradient(145deg, #1e1e1e, #2c2c2c);
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
 }
-.card-1 {
-    transform: translateY(-50px); /* move up */
-    z-index: 1;
-}
-.card-2 {
-    transform: translateY(0); /* center */
-    z-index: 2; /* middle card on top */
-}
-.card-3 {
-    transform: translateY(50px); /* move down */
-    z-index: 1;
-}
-.card-4 {
-    transform: translateY(-50px); /* move up */
-    z-index: 1;
-}
-.card-5 {
-    transform: translateY(0); /* center */
-    z-index: 2; /* middle card on top */
-}
-.card-6 {
-    transform: translateY(50px); /* move down */
-    z-index: 1;
-}
+/* diagonal positioning for visual depth */
+.card-1 { transform: translateY(-50px); z-index: 1; }
+.card-2 { transform: translateY(-20px); z-index: 2; }
+.card-3 { transform: translateY(30px); z-index: 1; }
+
+.card-4 { transform: translateY(-50px); z-index: 1; }
+.card-5 { transform: translateY(-20px); z-index: 2; }
+.card-6 { transform: translateY(30px); z-index: 1; }
 .card:hover{
-    transform: scale(1.05);
+    transform: scale(1.05) translateY(var(--shift, 0));
     box-shadow: 0 0 20px magenta, 0 0 30px magenta;
 }
-.card-4, .card-5, .card-6{
-    display: none;
-}
-.card :focus{
+
+.card:focus{
     width: 300px;
     height: 480px;
     transform: translateY(0);
     z-index: 3;
+}
+.card {
+  transition: opacity 0.4s ease, transform 0.4s ease;
 }

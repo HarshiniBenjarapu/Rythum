@@ -11,7 +11,7 @@
         <h1 class="logo">Rythum</h1>
         <!--side menu-->
         <nav class="navbar">
-            <ul>
+            <ul class="navlist">
                 <li class="home">Home</li>
                 <li class="fav">Favorties ❤</li>
                 <li class="rp">Recently Played</li>
@@ -20,17 +20,20 @@
     </header>
     <!--Playlist carousel-->
     <section class="Playlist-section">
-        <button class="scroll-left" id="scroll-left">⬅</button>
-        <div class="playlist-container" id="playlist-container">
-                        <!-- First 3 visible cards -->
-            <div class="card card-1" data-index="0">Song 1</div>
-            <div class="card card-2" data-index="1">Song 2</div>
-            <div class="card card-3" data-index="2">Song 3</div>
-            <div class="card card-4 " data-index="3">Song 4</div>
-            <div class="card card-5 " data-index="4">Song 5</div>
-            <div class="card card-6 " data-index="5">Song 6</div>
+        <a href="#" class="scroll-left" id="scroll-left">⬅</a>
+        <a href="#" class="scroll-right" id="scroll-right">➡</a>
+        <div class="playlist-container" id="playlist-container">     
+            <div class="firstset" id="firstset">
+                <div class="card card-1" >Song 1</div>                 
+                <div class="card card-2" >Song 2</div>
+                <div class="card card-3" >Song 3</div>
+            </div>  
+            <div class="secondset" id="secondset">
+                <div class="card card-4 " >Song 4</div>
+                <div class="card card-5 " >Song 5</div>
+                <div class="card card-6 " >Song 6</div>
+            </div>          
         </div>
-        <button class="scroll-right" id="scroll-right">➡</button>
     </section>
     <script src="dashboard.js"></script>
 </body>
